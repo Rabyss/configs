@@ -26,7 +26,7 @@ __prompt_return_value () {
 
 PROMPT="%{$fg[green]%}%n%{$reset_color%}@%{$fg[green]%}%m%{$reset_color%} %{$fg_bold[blue]%}%~%{$reset_color%} ($(__prompt_return_value)) %{$fg_bold[cyan]%}$%{$reset_color%} "
 
-# Right prompt for git: <untracked><unstaged><staged>|<OK> <repo_root>@<branch>
+# Right prompt for git: (<action>) <untracked><unstaged><staged>|<OK> <repo_root>@<branch>
 
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn
