@@ -36,6 +36,7 @@ precmd() {
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' get-revision true
 zstyle ':vcs_info:git*' formats "%m%{$fg_bold[red]%}%u%{$color_reset%}%{$fg_bold[yellow]%}%c%{$reset_color%} %{$fg_bold[magenta]%}%r%{$reset_color%}%{$fg_bold[white]%}@%{$reset_color%}%{$fg_bold[cyan]%}%b%{$reset_color%}"
+zstyle ':vcs_info:git*' actionformats "%{$fg_bold[cyan]%}(%a)%{$color_reset%} %m%{$fg_bold[red]%}%u%{$color_reset%}%{$fg_bold[yellow]%}%c%{$reset_color%} %{$fg_bold[magenta]%}%r%{$reset_color%}%{$fg_bold[white]%}@%{$reset_color%}%{$fg_bold[cyan]%}%b%{$reset_color%}"
 zstyle ':vcs_info:git*+set-message:*' hooks git-changes
 
 +vi-git-changes(){
@@ -61,4 +62,20 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-changes
 	hook_com[misc]="%{$fg_bold[green]%}✔%{$reset_color%}"
     fi
 }
+
 RPROMPT='${vcs_info_msg_0_}'
+
+# Environment
+
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
+# History bindings
+
+bindkey "^[[A" history-beginning-search-backward
+bindkey "^[[B" history-beginning-search-forward
+
+# Aliases
+
+alias la='ls -lah'
+alias glgg='git log --graph --all'
