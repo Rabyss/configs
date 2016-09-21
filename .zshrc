@@ -23,7 +23,7 @@ __prompt_return_value () {
   echo "%{%(?.$fg_bold[green].$fg_bold[red])%}%?%{$reset_color%}"
 }
 
-PROMPT="%{$fg[green]%}%n%{$reset_color%}@%{$fg[green]%}%m%{$reset_color%} %{$fg_bold[blue]%}%~%{$reset_color%} ($(__prompt_return_value)) %{$fg_bold[cyan]%}$%{$reset_color%} "
+PROMPT="%(!.%{$fg_bold[red]%}.%{$fg[green]%})%n%{$reset_color%}@%{$fg[green]%}%m%{$reset_color%} %{$fg_bold[blue]%}%~%{$reset_color%} ($(__prompt_return_value)) %{$fg_bold[cyan]%}%(!.⚠.$)%{$reset_color%} "
 
 # Right prompt for git: (<action>) <untracked><unstaged><staged>|<OK> <repo_root>@<branch>
 
