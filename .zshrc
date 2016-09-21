@@ -1,5 +1,6 @@
 # The following lines were added by compinstall
 
+zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 zstyle ':completion:*' completer _complete _ignored
 zstyle :compinstall filename '/home/jrabasco/.zshrc'
 
