@@ -3,8 +3,7 @@
 zstyle ':completion:*' completer _complete _ignored
 zstyle :compinstall filename '/home/jrabasco/.zshrc'
 
-autoload -Uz compinit
-compinit
+autoload -Uz compinit && compinit
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -79,3 +78,7 @@ bindkey "^[[B" history-beginning-search-forward
 
 alias la='ls -lah'
 alias glgg='git log --graph --all'
+
+# Options
+
+setopt AUTO_CD
