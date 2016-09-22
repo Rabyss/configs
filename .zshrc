@@ -83,3 +83,17 @@ alias glgg='git log --graph'
 # Options
 
 setopt AUTO_CD
+
+# Functions
+
+git_all() {
+	find -type d -name .git | \
+		while read l
+		do
+			dir="$(dirname "${l}")"
+			pushd "${dir}" > /dev/null
+			"${@}"
+			popd > /dev/null
+		done
+}
+
