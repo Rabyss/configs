@@ -78,7 +78,7 @@ bindkey "^[[B" history-beginning-search-forward
 # Aliases
 
 alias la='ls -lah'
-alias glgg='git log --graph --all'
+alias glgg='git log --graph'
 
 # Options
 
