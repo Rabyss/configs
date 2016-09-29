@@ -79,6 +79,10 @@ bindkey "^[[B" history-beginning-search-forward
 
 alias la='ls -lah'
 alias glgg='git log --graph'
+alias gpf='git push --force-with-lease jrabasco'
+alias docker='sudo docker'
+alias docker-killall='sudo docker kill $(sudo docker ps -q)'
+alias docker-rmall='sudo docker rm $(sudo docker ps -a -q)'
 
 # Options
 
