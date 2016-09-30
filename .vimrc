@@ -11,3 +11,5 @@ let g:tex_flavor='latex'
 au BufNewFile,BufRead,BufWinEnter *.pxi,*.pyi setf python
 autocmd FileType c,cpp,java,sh,python,javascript,matlab autocmd BufWritePre <buffer> :%s/\s\+$//e
 
+set tabstop=4
+set shiftwidth=4
