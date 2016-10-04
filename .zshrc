@@ -77,13 +77,9 @@ bindkey "^[[B" history-beginning-search-forward
 
 # Aliases
 
-alias la='ls -lah'
-alias glgg='git log --graph'
-alias gpf='git push --force-with-lease jrabasco'
-alias docker='sudo docker'
-alias docker-killall='sudo docker kill $(sudo docker ps -q)'
-alias docker-rmall='sudo docker rm $(sudo docker ps -a -q)'
-alias docker-compose="sudo docker-compose"
+if [ -f ~/.zsh_aliases ]; then
+	source ~/.zsh_aliases
+fi
 
 # Options
 

@@ -1,0 +1,11 @@
+# General
+alias la='ls -lah'
+
+# Git
+alias glgg='git log --graph'
+alias gpf='git push --force-with-lease jrabasco'
+
+# Docker
+alias docker-killall='docker kill $(docker ps -q)'
+alias docker-rmall='docker rm $(docker ps -a -q)'
+
