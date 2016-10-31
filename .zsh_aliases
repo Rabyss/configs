@@ -9,3 +9,6 @@ alias gpf='git push --force-with-lease jrabasco'
 alias docker-killall='docker kill $(docker ps -q)'
 alias docker-rmall='docker rm $(docker ps -a -q)'
 
+# Jupyter
+
+alias jupyter="~/anaconda3/bin/jupyter"

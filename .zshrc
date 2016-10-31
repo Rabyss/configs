@@ -15,6 +15,7 @@ bindkey -e
 
 # Completion highlighting
 zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 # Left prompt <username>@<hostname> <directory> (<return value>) $
 setopt prompt_subst
