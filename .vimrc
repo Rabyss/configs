@@ -1,6 +1,6 @@
 filetype plugin on
 filetype indent on
-imap jj <Esc>
+imap jk <Esc>
 let mapleader=','
 nnoremap <leader>s :up<enter>
 set number
