@@ -31,9 +31,6 @@ PROMPT="%(!.%{$fg_bold[red]%}.%{$fg[green]%})%n%{$reset_color%}@%{$fg[green]%}%m
 
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn
-precmd() {
-  vcs_info
-}
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' get-revision true
 zstyle ':vcs_info:git*' formats "%m%{$fg_bold[red]%}%u%{$color_reset%}%{$fg_bold[yellow]%}%c%{$reset_color%} %{$fg_bold[magenta]%}%r%{$reset_color%}%{$fg_bold[white]%}@%{$reset_color%}%{$fg_bold[cyan]%}%b%{$reset_color%}"
@@ -64,7 +61,41 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-changes
     fi
 }
 
-RPROMPT='${vcs_info_msg_0_}'
+RPROMPT=''
+
+ASYNC_PROC=0
+function precmd() {
+    function async() {
+			  vcs_info
+        # save to temp file
+        echo "${vcs_info_msg_0_}" > "/tmp/zsh_prompt_$$"
+
+        # signal parent
+        kill -s USR1 $$
+    }
+
+    # do not clear RPROMPT, let it persist
+
+    # kill child if necessary
+    if [[ "${ASYNC_PROC}" != 0 ]]; then
+        kill -s HUP $ASYNC_PROC >/dev/null 2>&1 || :
+    fi
+
+    # start background computation
+    async &!
+    ASYNC_PROC=$!
+}
+
+function TRAPUSR1() {
+    # read from temp file
+    RPROMPT="$(cat /tmp/zsh_prompt_$$)"
+
+    # reset proc number
+    ASYNC_PROC=0
+
+    # redisplay
+    zle && zle reset-prompt
+}
 
 # Environment
 
